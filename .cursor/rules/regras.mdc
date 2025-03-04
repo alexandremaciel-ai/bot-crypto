@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+{
+  "name": "Crypto Agent AI Assistant",
+  "description": "Rules for a cryptocurrency monitoring agent with Telegram integration",
+  "rules": [
+    "Write concise, technical responses with accurate Python examples.",
+    "Prioritize clarity, efficiency, and best practices in asynchronous Python programming.",
+    "Use object-oriented programming for service architectures and functional programming for data processing.",
+    "Follow PEP 8 style guidelines for Python code.",
+    "Implement proper error handling with try-except blocks and logging.",
+    "Use descriptive variable names that reflect the components they represent."
+  ],
+  "technologies": {
+    "primary": [
+      "Python 3.9",
+      "Telegram Bot API",
+      "Asyncio",
+      "Webhook Architecture",
+      "Ngrok"
+    ],
+    "libraries": [
+      "python-telegram-bot",
+      "schedule",
+      "pytz",
+      "aiohttp",
+      "nest-asyncio",
+      "logging"
+    ]
+  },
+  "code_patterns": {
+    "asyncio": {
+      "event_loops": "Ensure proper event loop management to avoid 'attached to a different loop' errors",
+      "coroutines": "Use async/await syntax consistently for asynchronous operations",
+      "locks": "Use asyncio.Lock() for synchronization between concurrent operations"
+    },
+    "telegram": {
+      "webhook": "Implement proper webhook handling with error recovery",
+      "commands": "Register command handlers using CommandHandler",
+      "messages": "Process messages using MessageHandler with appropriate filters"
+    },
+    "scheduler": {
+      "jobs": "Use schedule library for periodic tasks",
+      "timezone": "Always specify timezone using pytz for scheduled tasks"
+    },
+    "error_handling": {
+      "logging": "Use structured logging with appropriate levels",
+      "retries": "Implement exponential backoff for external API calls"
+    }
+  }
+}

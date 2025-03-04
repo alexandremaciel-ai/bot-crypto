@@ -1,0 +1,175 @@
+2025-03-04 14:53:46 - root - INFO - Sistema de logging inicializado
+2025-03-04 14:53:46 - __main__ - INFO - Iniciando em modo de desenvolvimento
+2025-03-04 14:53:46 - __main__ - INFO - Inicializando Crypto Agent
+2025-03-04 14:53:46 - __main__ - INFO - Iniciando Crypto Agent
+2025-03-04 14:53:46 - services.telegram_service - INFO - Inicializando serviço do Telegram...
+2025-03-04 14:53:47 - services.telegram_service - INFO - Serviço do Telegram inicializado com sucesso.
+2025-03-04 14:53:47 - services.telegram_service - INFO - Adicionando manipulador para o comando /vmc
+2025-03-04 14:53:47 - __main__ - INFO - Configurando agendamentos...
+2025-03-04 14:53:47 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' agendada para execução a cada 5 minutos
+2025-03-04 14:53:47 - services.scheduler_service - INFO - Tarefa assíncrona 'check_vmc_opportunities' agendada para execução a cada 60 minutos
+2025-03-04 14:53:47 - __main__ - INFO - Agendamentos configurados com sucesso
+2025-03-04 14:53:47 - __main__ - INFO - Configuração concluída com sucesso
+2025-03-04 14:53:47 - services.scheduler_service - INFO - Iniciando loop do agendador
+2025-03-04 14:53:47 - services.scheduler_service - INFO - Serviço de agendamento iniciado
+2025-03-04 14:53:47 - __main__ - INFO - Crypto Agent iniciado com sucesso
+2025-03-04 14:58:47 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 14:58:47 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 14:58:47 - __main__ - ERROR - Erro ao atualizar preços: 'CryptoService' object has no attribute 'get_current_price'
+2025-03-04 14:58:47 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.00 segundos
+2025-03-04 15:03:47 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 15:03:47 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 15:03:47 - __main__ - ERROR - Erro ao atualizar preços: 'CryptoService' object has no attribute 'get_current_price'
+2025-03-04 15:03:47 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.00 segundos
+2025-03-04 15:19:33 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 15:19:33 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 15:19:33 - __main__ - ERROR - Erro ao atualizar preços: 'CryptoService' object has no attribute 'get_current_price'
+2025-03-04 15:19:33 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.00 segundos
+2025-03-04 15:31:20 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 15:31:20 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 15:31:20 - __main__ - ERROR - Erro ao atualizar preços: 'CryptoService' object has no attribute 'get_current_price'
+2025-03-04 15:31:20 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.00 segundos
+2025-03-04 15:34:29 - __main__ - INFO - Parando Crypto Agent
+2025-03-04 15:34:31 - services.scheduler_service - INFO - Serviço de agendamento parado
+2025-03-04 15:34:31 - __main__ - INFO - Crypto Agent parado com sucesso
+2025-03-04 15:34:33 - root - INFO - Sistema de logging inicializado
+2025-03-04 15:34:33 - __main__ - INFO - Iniciando em modo de desenvolvimento
+2025-03-04 15:34:33 - __main__ - INFO - Inicializando Crypto Agent
+2025-03-04 15:34:33 - __main__ - INFO - Iniciando Crypto Agent
+2025-03-04 15:34:33 - services.telegram_service - INFO - Inicializando serviço do Telegram...
+2025-03-04 15:34:34 - services.telegram_service - INFO - Serviço do Telegram inicializado com sucesso.
+2025-03-04 15:34:34 - services.telegram_service - INFO - Adicionando manipulador para o comando /vmc
+2025-03-04 15:34:34 - __main__ - INFO - Configurando agendamentos...
+2025-03-04 15:34:34 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' agendada para execução a cada 5 minutos
+2025-03-04 15:34:34 - services.scheduler_service - INFO - Tarefa assíncrona 'check_vmc_opportunities' agendada para execução a cada 60 minutos
+2025-03-04 15:34:34 - __main__ - INFO - Agendamentos configurados com sucesso
+2025-03-04 15:34:34 - __main__ - INFO - Configuração concluída com sucesso
+2025-03-04 15:34:34 - services.scheduler_service - INFO - Iniciando loop do agendador
+2025-03-04 15:34:34 - services.scheduler_service - INFO - Serviço de agendamento iniciado
+2025-03-04 15:34:34 - __main__ - INFO - Crypto Agent iniciado com sucesso
+2025-03-04 15:39:34 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 15:39:34 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 15:39:36 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 15:39:36 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.49 segundos
+2025-03-04 15:44:36 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 15:44:36 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 15:44:38 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 15:44:38 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.48 segundos
+2025-03-04 15:49:38 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 15:49:38 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 15:49:40 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 15:49:40 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.47 segundos
+2025-03-04 15:54:40 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 15:54:40 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 15:54:41 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 15:54:41 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.48 segundos
+2025-03-04 15:58:50 - __main__ - INFO - Parando Crypto Agent
+2025-03-04 15:58:51 - services.scheduler_service - INFO - Serviço de agendamento parado
+2025-03-04 15:58:51 - __main__ - INFO - Crypto Agent parado com sucesso
+2025-03-04 15:58:54 - root - INFO - Sistema de logging inicializado
+2025-03-04 15:58:54 - __main__ - INFO - Iniciando em modo de desenvolvimento
+2025-03-04 15:58:54 - __main__ - INFO - Inicializando Crypto Agent
+2025-03-04 15:58:54 - __main__ - INFO - Iniciando Crypto Agent
+2025-03-04 15:58:54 - services.telegram_service - INFO - Inicializando serviço do Telegram...
+2025-03-04 15:58:55 - services.telegram_service - INFO - Serviço do Telegram inicializado com sucesso.
+2025-03-04 15:58:55 - services.telegram_service - INFO - Adicionando manipulador para o comando /vmc
+2025-03-04 15:58:55 - __main__ - INFO - Configurando agendamentos...
+2025-03-04 15:58:55 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' agendada para execução a cada 5 minutos
+2025-03-04 15:58:55 - services.scheduler_service - INFO - Tarefa assíncrona 'check_vmc_opportunities' agendada para execução a cada 60 minutos
+2025-03-04 15:58:55 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' agendada para execução a cada 10 minutos
+2025-03-04 15:58:55 - __main__ - INFO - Agendamentos configurados com sucesso
+2025-03-04 15:58:55 - __main__ - INFO - Configuração concluída com sucesso
+2025-03-04 15:58:55 - services.scheduler_service - INFO - Iniciando loop do agendador
+2025-03-04 15:58:55 - services.scheduler_service - INFO - Serviço de agendamento iniciado
+2025-03-04 15:58:55 - __main__ - INFO - Crypto Agent iniciado com sucesso
+2025-03-04 16:03:55 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:03:55 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:03:56 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:03:56 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.49 segundos
+2025-03-04 16:08:56 - services.scheduler_service - INFO - Executando tarefa assíncrona 'check_short_term_uptrend'
+2025-03-04 16:08:56 - services.short_term_uptrend_service - INFO - Verificando criptomoedas com tendência de alta de curto prazo...
+2025-03-04 16:09:00 - services.short_term_uptrend_service - INFO - Encontradas 2 moedas com tendência de alta de curto prazo
+2025-03-04 16:09:00 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' concluída em 4.21 segundos
+2025-03-04 16:09:01 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:09:01 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:09:02 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:09:02 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.83 segundos
+2025-03-04 16:14:03 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:14:03 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:14:06 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:14:06 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 3.77 segundos
+2025-03-04 16:29:45 - services.scheduler_service - INFO - Executando tarefa assíncrona 'check_short_term_uptrend'
+2025-03-04 16:29:45 - services.short_term_uptrend_service - INFO - Verificando criptomoedas com tendência de alta de curto prazo...
+2025-03-04 16:29:57 - services.short_term_uptrend_service - INFO - Encontradas 2 moedas com tendência de alta de curto prazo
+2025-03-04 16:29:57 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' concluída em 11.85 segundos
+2025-03-04 16:29:57 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:29:57 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:29:58 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:29:58 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.84 segundos
+2025-03-04 16:34:03 - __main__ - INFO - Parando Crypto Agent
+2025-03-04 16:34:04 - services.scheduler_service - INFO - Serviço de agendamento parado
+2025-03-04 16:34:04 - __main__ - INFO - Crypto Agent parado com sucesso
+2025-03-04 16:34:42 - root - INFO - Sistema de logging inicializado
+2025-03-04 16:34:42 - __main__ - INFO - Iniciando em modo de desenvolvimento
+2025-03-04 16:34:42 - __main__ - INFO - Inicializando Crypto Agent
+2025-03-04 16:34:42 - __main__ - INFO - Iniciando Crypto Agent
+2025-03-04 16:34:42 - services.telegram_service - INFO - Inicializando serviço do Telegram...
+2025-03-04 16:34:43 - services.telegram_service - INFO - Serviço do Telegram inicializado com sucesso.
+2025-03-04 16:34:43 - services.telegram_service - INFO - Adicionando manipulador para o comando /vmc
+2025-03-04 16:34:43 - services.telegram_service - INFO - Adicionando manipulador para o comando /moedas
+2025-03-04 16:34:43 - __main__ - INFO - Configurando agendamentos...
+2025-03-04 16:34:43 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' agendada para execução a cada 5 minutos
+2025-03-04 16:34:43 - services.scheduler_service - INFO - Tarefa assíncrona 'check_vmc_opportunities' agendada para execução a cada 60 minutos
+2025-03-04 16:34:43 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' agendada para execução a cada 10 minutos
+2025-03-04 16:34:43 - __main__ - INFO - Agendamentos configurados com sucesso
+2025-03-04 16:34:43 - __main__ - INFO - Configuração concluída com sucesso
+2025-03-04 16:34:43 - services.scheduler_service - INFO - Iniciando loop do agendador
+2025-03-04 16:34:43 - services.scheduler_service - INFO - Serviço de agendamento iniciado
+2025-03-04 16:34:43 - __main__ - INFO - Crypto Agent iniciado com sucesso
+2025-03-04 16:35:42 - root - INFO - Sistema de logging inicializado
+2025-03-04 16:35:42 - __main__ - INFO - Iniciando em modo de desenvolvimento
+2025-03-04 16:35:42 - __main__ - INFO - Inicializando Crypto Agent
+2025-03-04 16:35:42 - utils.lock - ERROR - Another bot instance is already running (PID: 39874)
+2025-03-04 16:35:42 - __main__ - ERROR - Outra instância do Crypto Agent já está em execução. Encerrando...
+2025-03-04 16:35:50 - root - INFO - Sistema de logging inicializado
+2025-03-04 16:35:50 - __main__ - INFO - Iniciando em modo de desenvolvimento
+2025-03-04 16:35:50 - __main__ - INFO - Inicializando Crypto Agent
+2025-03-04 16:35:50 - utils.lock - WARNING - Found stale lock file, removing it
+2025-03-04 16:35:50 - __main__ - INFO - Iniciando Crypto Agent
+2025-03-04 16:35:50 - services.telegram_service - INFO - Inicializando serviço do Telegram...
+2025-03-04 16:35:51 - services.telegram_service - INFO - Serviço do Telegram inicializado com sucesso.
+2025-03-04 16:35:51 - services.telegram_service - INFO - Adicionando manipulador para o comando /vmc
+2025-03-04 16:35:51 - services.telegram_service - INFO - Adicionando manipulador para o comando /moedas
+2025-03-04 16:35:51 - __main__ - INFO - Configurando agendamentos...
+2025-03-04 16:35:51 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' agendada para execução a cada 5 minutos
+2025-03-04 16:35:51 - services.scheduler_service - INFO - Tarefa assíncrona 'check_vmc_opportunities' agendada para execução a cada 60 minutos
+2025-03-04 16:35:51 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' agendada para execução a cada 10 minutos
+2025-03-04 16:35:51 - __main__ - INFO - Agendamentos configurados com sucesso
+2025-03-04 16:35:51 - __main__ - INFO - Configuração concluída com sucesso
+2025-03-04 16:35:51 - services.scheduler_service - INFO - Iniciando loop do agendador
+2025-03-04 16:35:51 - services.scheduler_service - INFO - Serviço de agendamento iniciado
+2025-03-04 16:35:51 - __main__ - INFO - Crypto Agent iniciado com sucesso
+2025-03-04 16:37:59 - __main__ - INFO - Parando Crypto Agent
+2025-03-04 16:38:00 - services.scheduler_service - INFO - Serviço de agendamento parado
+2025-03-04 16:38:00 - __main__ - INFO - Crypto Agent parado com sucesso
+2025-03-04 16:38:03 - root - INFO - Sistema de logging inicializado
+2025-03-04 16:38:03 - __main__ - INFO - Iniciando em modo de desenvolvimento
+2025-03-04 16:38:03 - __main__ - INFO - Inicializando Crypto Agent
+2025-03-04 16:38:03 - __main__ - INFO - Iniciando Crypto Agent
+2025-03-04 16:38:03 - services.telegram_service - INFO - Inicializando serviço do Telegram...
+2025-03-04 16:38:04 - services.telegram_service - INFO - Serviço do Telegram inicializado com sucesso.
+2025-03-04 16:38:04 - services.telegram_service - INFO - Adicionando manipulador para o comando /vmc
+2025-03-04 16:38:04 - services.telegram_service - INFO - Adicionando manipulador para o comando /moedas
+2025-03-04 16:38:04 - __main__ - INFO - Configurando agendamentos...
+2025-03-04 16:38:04 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' agendada para execução a cada 5 minutos
+2025-03-04 16:38:04 - services.scheduler_service - INFO - Tarefa assíncrona 'check_vmc_opportunities' agendada para execução a cada 60 minutos
+2025-03-04 16:38:04 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' agendada para execução a cada 10 minutos
+2025-03-04 16:38:04 - __main__ - INFO - Agendamentos configurados com sucesso
+2025-03-04 16:38:04 - __main__ - INFO - Configuração concluída com sucesso
+2025-03-04 16:38:04 - services.scheduler_service - INFO - Iniciando loop do agendador
+2025-03-04 16:38:04 - services.scheduler_service - INFO - Serviço de agendamento iniciado
+2025-03-04 16:38:04 - __main__ - INFO - Crypto Agent iniciado com sucesso
+2025-03-04 16:43:04 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:43:04 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:43:04 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:43:04 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.00 segundos

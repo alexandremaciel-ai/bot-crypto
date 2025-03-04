@@ -26,22 +26,36 @@ def setup_logging() -> None:
     Configura o sistema de logging global.
     
     Configura handlers para console e arquivo, com rotação diária de arquivos.
+    O console mostra todos os logs conforme o nível configurado,
+    enquanto o arquivo de log registra apenas erros e níveis superiores.
     """
     # Nível de log da configuração
     log_level = get_log_level()
     
-    # Configuração básica
-    logging.basicConfig(
-        level=log_level,
-        format=LOG_FORMAT,
-        datefmt=DATE_FORMAT,
-        handlers=[
-            logging.StreamHandler(sys.stdout),
-            logging.FileHandler(
-                os.path.join(LOG_DIR, f"crypto_agent_{datetime.now().strftime('%Y-%m-%d')}.log")
-            ),
-        ],
+    # Configuração do logger raiz
+    root_logger = logging.getLogger()
+    root_logger.setLevel(log_level)
+    
+    # Limpa handlers existentes
+    for handler in root_logger.handlers[:]:
+        root_logger.removeHandler(handler)
+    
+    # Formatador para os logs
+    formatter = logging.Formatter(LOG_FORMAT, datefmt=DATE_FORMAT)
+    
+    # Handler para console - mostra todos os logs conforme nível configurado
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(log_level)
+    console_handler.setFormatter(formatter)
+    root_logger.addHandler(console_handler)
+    
+    # Handler para arquivo - mostra apenas ERROR e CRITICAL
+    file_handler = logging.FileHandler(
+        os.path.join(LOG_DIR, f"crypto_agent_{datetime.now().strftime('%Y-%m-%d')}.log")
     )
+    file_handler.setLevel(logging.ERROR)  # Apenas erros e críticos
+    file_handler.setFormatter(formatter)
+    root_logger.addHandler(file_handler)
     
     # Reduzir verbosidade de bibliotecas de terceiros
     logging.getLogger("telegram").setLevel(logging.WARNING)
@@ -49,7 +63,9 @@ def setup_logging() -> None:
     logging.getLogger("asyncio").setLevel(logging.WARNING)
     
     # Log inicial
-    logging.info("Sistema de logging inicializado")
+    logging.info("Sistema de logging inicializado (console: {}, arquivo: ERROR)".format(
+        logging.getLevelName(log_level)
+    ))
 
 def get_logger(name: str) -> logging.Logger:
     """

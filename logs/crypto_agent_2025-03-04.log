@@ -173,3 +173,25 @@
 2025-03-04 16:43:04 - __main__ - INFO - Atualizando preços das criptomoedas...
 2025-03-04 16:43:04 - __main__ - INFO - Preços atualizados com sucesso
 2025-03-04 16:43:04 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 0.00 segundos
+2025-03-04 16:48:04 - services.scheduler_service - INFO - Executando tarefa assíncrona 'check_short_term_uptrend'
+2025-03-04 16:48:04 - services.short_term_uptrend_service - INFO - Verificando criptomoedas com tendência de alta de curto prazo...
+2025-03-04 16:48:05 - services.short_term_uptrend_service - INFO - Analisando 398 criptomoedas disponíveis na API
+2025-03-04 16:48:51 - services.short_term_uptrend_service - INFO - Encontradas 15 moedas com tendência de alta de curto prazo
+2025-03-04 16:48:51 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' concluída em 46.86 segundos
+2025-03-04 16:48:51 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:48:51 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:48:53 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:48:53 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.87 segundos
+2025-03-04 16:53:53 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:53:53 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:53:55 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:53:55 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.63 segundos
+2025-03-04 16:58:51 - services.scheduler_service - INFO - Executando tarefa assíncrona 'check_short_term_uptrend'
+2025-03-04 16:58:51 - services.short_term_uptrend_service - INFO - Verificando criptomoedas com tendência de alta de curto prazo...
+2025-03-04 16:58:52 - services.short_term_uptrend_service - INFO - Analisando 398 criptomoedas disponíveis na API
+2025-03-04 16:59:41 - services.short_term_uptrend_service - INFO - Encontradas 16 moedas com tendência de alta de curto prazo
+2025-03-04 16:59:41 - services.scheduler_service - INFO - Tarefa assíncrona 'check_short_term_uptrend' concluída em 49.64 segundos
+2025-03-04 16:59:42 - services.scheduler_service - INFO - Executando tarefa assíncrona 'update_prices'
+2025-03-04 16:59:42 - __main__ - INFO - Atualizando preços das criptomoedas...
+2025-03-04 16:59:43 - __main__ - INFO - Preços atualizados com sucesso
+2025-03-04 16:59:43 - services.scheduler_service - INFO - Tarefa assíncrona 'update_prices' concluída em 1.40 segundos

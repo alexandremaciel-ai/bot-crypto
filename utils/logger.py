@@ -26,15 +26,11 @@ def setup_logging() -> None:
     Configura o sistema de logging global.
     
     Configura handlers para console e arquivo, com rotação diária de arquivos.
-    O console mostra todos os logs conforme o nível configurado,
-    enquanto o arquivo de log registra apenas erros e níveis superiores.
+    Tanto o console quanto o arquivo de log registram apenas erros e níveis superiores.
     """
-    # Nível de log da configuração
-    log_level = get_log_level()
-    
     # Configuração do logger raiz
     root_logger = logging.getLogger()
-    root_logger.setLevel(log_level)
+    root_logger.setLevel(logging.ERROR)  # Configura para registrar apenas ERROR e CRITICAL
     
     # Limpa handlers existentes
     for handler in root_logger.handlers[:]:
@@ -43,9 +39,9 @@ def setup_logging() -> None:
     # Formatador para os logs
     formatter = logging.Formatter(LOG_FORMAT, datefmt=DATE_FORMAT)
     
-    # Handler para console - mostra todos os logs conforme nível configurado
+    # Handler para console - mostra apenas ERROR e CRITICAL
     console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setLevel(log_level)
+    console_handler.setLevel(logging.ERROR)
     console_handler.setFormatter(formatter)
     root_logger.addHandler(console_handler)
     
@@ -58,14 +54,12 @@ def setup_logging() -> None:
     root_logger.addHandler(file_handler)
     
     # Reduzir verbosidade de bibliotecas de terceiros
-    logging.getLogger("telegram").setLevel(logging.WARNING)
-    logging.getLogger("httpx").setLevel(logging.WARNING)
-    logging.getLogger("asyncio").setLevel(logging.WARNING)
+    logging.getLogger("telegram").setLevel(logging.ERROR)
+    logging.getLogger("httpx").setLevel(logging.ERROR)
+    logging.getLogger("asyncio").setLevel(logging.ERROR)
     
     # Log inicial
-    logging.info("Sistema de logging inicializado (console: {}, arquivo: ERROR)".format(
-        logging.getLevelName(log_level)
-    ))
+    logging.error("Sistema de logging inicializado (console: ERROR, arquivo: ERROR)")
 
 def get_logger(name: str) -> logging.Logger:
     """

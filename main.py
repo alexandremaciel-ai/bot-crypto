@@ -23,6 +23,7 @@ from services.trend_analysis_service import TrendAnalysisChecker
 from services.rsi_oversold_service import RSIOversoldChecker
 from services.vmc_cipher_service import VMCCipherService
 from services.short_term_uptrend_service import ShortTermUptrendChecker
+from services.short_term_downtrend_service import ShortTermDowntrendChecker
 from utils.logger import setup_logging, get_logger
 from utils.lock import BotLock
 
@@ -50,6 +51,7 @@ class CryptoAgent:
         self.rsi_oversold_checker: Optional[RSIOversoldChecker] = None
         self.vmc_cipher_service: Optional[VMCCipherService] = None
         self.short_term_uptrend_checker: Optional[ShortTermUptrendChecker] = None
+        self.short_term_downtrend_checker: Optional[ShortTermDowntrendChecker] = None
         self.running = False
         self.lock = BotLock()
         
@@ -80,6 +82,9 @@ class CryptoAgent:
             
             # Inicializa o serviço de tendência de alta de curto prazo
             self.short_term_uptrend_checker = ShortTermUptrendChecker(self.crypto_service, self.telegram_service)
+            
+            # Inicializa o serviço de tendência de baixa de curto prazo
+            self.short_term_downtrend_checker = ShortTermDowntrendChecker(self.crypto_service, self.telegram_service, self.vmc_cipher_service)
             
             # Adiciona o handler para o comando /vmc
             self.telegram_service.add_command_handler("vmc", self.handle_vmc)
@@ -121,6 +126,14 @@ class CryptoAgent:
                 self.short_term_uptrend_checker.check_uptrend,
                 interval_minutes=10,  # Executa a cada 10 minutos
                 job_id="check_short_term_uptrend"
+            )
+        
+        # Agendamento para verificação de tendência de baixa de curto prazo
+        if self.short_term_downtrend_checker:
+            self.scheduler_service.add_job(
+                self.short_term_downtrend_checker.check_downtrend,
+                interval_minutes=12,  # Executa a cada 12 minutos
+                job_id="check_short_term_downtrend"
             )
         
         self.logger.info("Agendamentos configurados com sucesso")

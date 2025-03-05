@@ -15,6 +15,11 @@ Um bot do Telegram para monitoramento de criptomoedas em tempo real, com anális
 - **Novo:** Detecção de tendência de baixa de curto prazo
   - Identifica criptomoedas com RSI abaixo de 45 no timeframe de 4 horas
   - Verifica VMC Cipher com círculo vermelho no timeframe de 1 hora
+- **Novo:** Detecção de tendência de alta de curto prazo
+  - Identifica criptomoedas com preço acima das EMAs 8 e 14 no timeframe de 4 horas
+  - Verifica RSI acima do RSI Based MA no timeframe de 4 horas
+  - Verifica RSI acima de 50 pontos no timeframe de 4 horas
+  - Verifica preço da moeda acima do topo anterior no timeframe de 4 horas
 - Interface amigável via Telegram
 - Suporte a múltiplos usuários com controle de acesso
 - **Novo:** Scripts robustos para inicialização e encerramento seguro do bot
@@ -173,7 +178,8 @@ O bot executa os seguintes serviços em intervalos regulares:
 - **Verificação de Preços**: A cada 5 minutos
 - **Análise VMC Cipher**: A cada 15 minutos
 - **Verificação de Oportunidades de Compra**: A cada 30 minutos
-- **Verificação de Tendência de Baixa de Curto Prazo**: A cada 12 minutos (novo)
+- **Verificação de Tendência de Baixa de Curto Prazo**: A cada 12 minutos
+- **Verificação de Tendência de Alta de Curto Prazo**: A cada 15 minutos
 
 ## Configuração de Logging
 
@@ -200,6 +206,17 @@ O novo serviço de detecção de tendência de baixa de curto prazo identifica c
 2. VMC Cipher com círculo vermelho no timeframe de 1 hora
 
 Este serviço é executado a cada 12 minutos e envia notificações para o chat do Telegram quando encontra criptomoedas que atendem a esses critérios.
+
+## Detecção de Tendência de Alta de Curto Prazo
+
+O serviço de detecção de tendência de alta de curto prazo identifica criptomoedas que atendem aos seguintes critérios:
+
+1. Preço acima das EMAs 8 e 14 no timeframe de 4 horas
+2. RSI acima do RSI Based MA no timeframe de 4 horas
+3. RSI acima de 50 pontos no timeframe de 4 horas
+4. Preço da moeda acima do topo anterior no timeframe de 4 horas
+
+Este serviço é executado a cada 15 minutos e envia notificações para o chat do Telegram quando encontra criptomoedas que atendem a esses critérios.
 
 ## Solução de Problemas
 

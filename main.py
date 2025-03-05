@@ -124,7 +124,7 @@ class CryptoAgent:
         if self.short_term_uptrend_checker:
             self.scheduler_service.add_job(
                 self.short_term_uptrend_checker.check_uptrend,
-                interval_minutes=10,  # Executa a cada 10 minutos
+                interval_minutes=15,  # Executa a cada 15 minutos
                 job_id="check_short_term_uptrend"
             )
         

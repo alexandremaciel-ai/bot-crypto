@@ -1,619 +1,627 @@
-=== Log do Crypto Agent iniciado em Tue Mar  4 19:17:16 -03 2025 ===
+=== Log do Crypto Agent iniciado em Wed Mar  5 19:00:27 -03 2025 ===
 Aviso: Biblioteca TA-Lib não encontrada. Usando alternativa.
-2025-03-04 19:17:17 - root - ERROR - Sistema de logging inicializado (console: ERROR, arquivo: ERROR)
-2025-03-04 19:33:29 - services.crypto_service - ERROR - Erro ao fazer requisição para https://api.binance.com/api/v3/exchangeInfo - Exceção: ClientOSError: [Errno 54] Connection reset by peer
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 103, in _make_request
-    async with self.session.get(url, params=params) as response:
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 1187, in __aenter__
-    self._resp = await self._coro
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 601, in _request
-    await resp.start(conn)
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client_reqrep.py", line 965, in start
-    message, payload = await protocol.read()  # type: ignore[union-attr]
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/streams.py", line 622, in read
-    await self._waiter
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 284, in __await__
-    yield self  # This tells Task to wait for completion.
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 328, in __wakeup
-    future.result()
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 201, in result
-    raise self._exception
-aiohttp.client_exceptions.ClientOSError: [Errno 54] Connection reset by peer
-2025-03-04 19:33:29 - services.crypto_service - ERROR - Erro ao obter símbolos disponíveis - Exceção: ClientOSError: [Errno 54] Connection reset by peer
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 223, in get_available_symbols
-    response = await self._make_request(exchange_info_endpoint)
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 103, in _make_request
-    async with self.session.get(url, params=params) as response:
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 1187, in __aenter__
-    self._resp = await self._coro
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 601, in _request
-    await resp.start(conn)
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client_reqrep.py", line 965, in start
-    message, payload = await protocol.read()  # type: ignore[union-attr]
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/streams.py", line 622, in read
-    await self._waiter
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 284, in __await__
-    yield self  # This tells Task to wait for completion.
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 328, in __wakeup
-    future.result()
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 201, in result
-    raise self._exception
-aiohttp.client_exceptions.ClientOSError: [Errno 54] Connection reset by peer
-2025-03-04 19:33:29 - services.short_term_downtrend_service - ERROR - Erro ao obter símbolos disponíveis - Exceção: ClientOSError: [Errno 54] Connection reset by peer
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 50, in _analyze_market
-    available_symbols = await self.crypto_service.get_available_symbols()
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 223, in get_available_symbols
-    response = await self._make_request(exchange_info_endpoint)
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 103, in _make_request
-    async with self.session.get(url, params=params) as response:
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 1187, in __aenter__
-    self._resp = await self._coro
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 601, in _request
-    await resp.start(conn)
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client_reqrep.py", line 965, in start
-    message, payload = await protocol.read()  # type: ignore[union-attr]
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/streams.py", line 622, in read
-    await self._waiter
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 284, in __await__
-    yield self  # This tells Task to wait for completion.
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 328, in __wakeup
-    future.result()
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 201, in result
-    raise self._exception
-aiohttp.client_exceptions.ClientOSError: [Errno 54] Connection reset by peer
-2025-03-04 19:33:30 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para BNBUSDT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 50, in _analyze_market
-    available_symbols = await self.crypto_service.get_available_symbols()
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 223, in get_available_symbols
-    response = await self._make_request(exchange_info_endpoint)
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 103, in _make_request
-    async with self.session.get(url, params=params) as response:
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 1187, in __aenter__
-    self._resp = await self._coro
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 601, in _request
-    await resp.start(conn)
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client_reqrep.py", line 965, in start
-    message, payload = await protocol.read()  # type: ignore[union-attr]
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/streams.py", line 622, in read
-    await self._waiter
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 284, in __await__
-    yield self  # This tells Task to wait for completion.
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 328, in __wakeup
-    future.result()
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 201, in result
-    raise self._exception
-aiohttp.client_exceptions.ClientOSError: [Errno 54] Connection reset by peer
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 19:33:31 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DOGEUSDT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 50, in _analyze_market
-    available_symbols = await self.crypto_service.get_available_symbols()
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 223, in get_available_symbols
-    response = await self._make_request(exchange_info_endpoint)
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 103, in _make_request
-    async with self.session.get(url, params=params) as response:
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 1187, in __aenter__
-    self._resp = await self._coro
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 601, in _request
-    await resp.start(conn)
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client_reqrep.py", line 965, in start
-    message, payload = await protocol.read()  # type: ignore[union-attr]
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/streams.py", line 622, in read
-    await self._waiter
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 284, in __await__
-    yield self  # This tells Task to wait for completion.
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py", line 328, in __wakeup
-    future.result()
-  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/futures.py", line 201, in result
-    raise self._exception
-aiohttp.client_exceptions.ClientOSError: [Errno 54] Connection reset by peer
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:32 - services.crypto_service - ERROR - Erro ao obter dados históricos para KNC (4h) - Exceção: TimeoutError: 
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 311, in get_historical_data
-    response = await self._make_request(
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 103, in _make_request
-    async with self.session.get(url, params=params) as response:
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 1187, in __aenter__
-    self._resp = await self._coro
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 601, in _request
-    await resp.start(conn)
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client_reqrep.py", line 980, in start
-    self._continue = None
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/helpers.py", line 735, in __exit__
-    raise asyncio.TimeoutError from None
-asyncio.exceptions.TimeoutError
-2025-03-04 20:17:32 - services.short_term_uptrend_service - ERROR - Erro ao verificar condições de tendência de alta para KNC - Exceção: TimeoutError: 
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_uptrend_service.py", line 122, in _check_uptrend_conditions
-    df_4h = await self.crypto_service.get_historical_data(symbol, "4h")
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 311, in get_historical_data
-    response = await self._make_request(
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 103, in _make_request
-    async with self.session.get(url, params=params) as response:
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 1187, in __aenter__
-    self._resp = await self._coro
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client.py", line 601, in _request
-    await resp.start(conn)
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/client_reqrep.py", line 980, in start
-    self._continue = None
-  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/aiohttp/helpers.py", line 735, in __exit__
-    raise asyncio.TimeoutError from None
-asyncio.exceptions.TimeoutError
-2025-03-04 20:17:46 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para BNB - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:46 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para NEO - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:47 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para LTC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:47 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para QTUM - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:48 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para XRP - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:49 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para EOS - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:50 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para XLM - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:50 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ONT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:51 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ETC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:52 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ICX - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:52 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para NULS - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:53 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para VET - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:54 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ONG - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:55 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para HOT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:55 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ZIL - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:56 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ZRX - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:57 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para FET - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:58 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para BAT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:59 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ZEC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:17:59 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para IOST - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:00 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para CELR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:01 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DASH - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:02 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para THETA - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:03 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ENJ - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:03 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ATOM - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:04 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para TFUEL - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:05 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ONE - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:05 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ALGO - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:06 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DOGE - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:06 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DUSK - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:07 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ANKR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:08 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para WIN - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:08 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para COS - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:09 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para MTL - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:09 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DENT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:10 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para WAN - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:10 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para FUN - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:11 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para CVC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:12 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para CHZ - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:13 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para BAND - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:13 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para XTZ - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:14 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para RVN - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:15 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para NKN - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:15 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para STX - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:16 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para KAVA - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:16 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ARPA - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:32 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para IOTX - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:33 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para CTXC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:33 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para TROY - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:34 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para FTT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:35 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para OGN - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:35 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para LSK - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:36 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para LTO - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:37 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para MBL - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:38 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para STPT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:38 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DATA - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:39 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para SOL - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:39 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para CTSI - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:40 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para HIVE - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:41 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para CHR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:41 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ARDR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:42 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para MDT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:42 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para KNC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:43 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para LRC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:44 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para SC - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:44 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para ZEN - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:45 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para VTHO - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:46 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para SXP - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:47 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para MKR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:47 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DCR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:48 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para STORJ - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:48 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para MANA - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:49 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para YFI - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:50 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para BAL - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:50 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para KMD - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:52 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para SAND - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:52 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para NMR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:53 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para DOT - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:53 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para LUNA - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:54 - services.short_term_downtrend_service - ERROR - Erro ao verificar condições de tendência de baixa para RSR - Exceção: AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/short_term_downtrend_service.py", line 144, in _check_downtrend_conditions
-    condition_2 = vmc_result.red_circle
-AttributeError: 'VMCAnalysisResult' object has no attribute 'red_circle'
-2025-03-04 20:18:57 - services.crypto_service - ERROR - Erro ao obter dados históricos para BTCUSDT (3h) - Exceção: ValueError: Timeframe inválido: 3h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 3h
-2025-03-04 20:18:57 - services.vmc_cipher_service - ERROR - Erro ao analisar BTCUSDT com VMC Cipher: Timeframe inválido: 3h
-2025-03-04 20:18:57 - services.crypto_service - ERROR - Erro ao obter dados históricos para BTCUSDT (12h) - Exceção: ValueError: Timeframe inválido: 12h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 12h
-2025-03-04 20:18:57 - services.vmc_cipher_service - ERROR - Erro ao analisar BTCUSDT com VMC Cipher: Timeframe inválido: 12h
-2025-03-04 20:18:57 - services.crypto_service - ERROR - Erro ao obter dados históricos para ETHUSDT (3h) - Exceção: ValueError: Timeframe inválido: 3h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 3h
-2025-03-04 20:18:57 - services.vmc_cipher_service - ERROR - Erro ao analisar ETHUSDT com VMC Cipher: Timeframe inválido: 3h
-2025-03-04 20:18:57 - services.crypto_service - ERROR - Erro ao obter dados históricos para ETHUSDT (12h) - Exceção: ValueError: Timeframe inválido: 12h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 12h
-2025-03-04 20:18:57 - services.vmc_cipher_service - ERROR - Erro ao analisar ETHUSDT com VMC Cipher: Timeframe inválido: 12h
-2025-03-04 20:18:57 - services.crypto_service - ERROR - Erro ao obter dados históricos para BNBUSDT (3h) - Exceção: ValueError: Timeframe inválido: 3h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 3h
-2025-03-04 20:18:57 - services.vmc_cipher_service - ERROR - Erro ao analisar BNBUSDT com VMC Cipher: Timeframe inválido: 3h
-2025-03-04 20:18:58 - services.crypto_service - ERROR - Erro ao obter dados históricos para BNBUSDT (12h) - Exceção: ValueError: Timeframe inválido: 12h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 12h
-2025-03-04 20:18:58 - services.vmc_cipher_service - ERROR - Erro ao analisar BNBUSDT com VMC Cipher: Timeframe inválido: 12h
-2025-03-04 20:18:58 - services.crypto_service - ERROR - Erro ao obter dados históricos para ADAUSDT (3h) - Exceção: ValueError: Timeframe inválido: 3h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 3h
-2025-03-04 20:18:58 - services.vmc_cipher_service - ERROR - Erro ao analisar ADAUSDT com VMC Cipher: Timeframe inválido: 3h
-2025-03-04 20:18:58 - services.crypto_service - ERROR - Erro ao obter dados históricos para ADAUSDT (12h) - Exceção: ValueError: Timeframe inválido: 12h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 12h
-2025-03-04 20:18:58 - services.vmc_cipher_service - ERROR - Erro ao analisar ADAUSDT com VMC Cipher: Timeframe inválido: 12h
-2025-03-04 20:18:58 - services.crypto_service - ERROR - Erro ao obter dados históricos para DOGEUSDT (3h) - Exceção: ValueError: Timeframe inválido: 3h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 3h
-2025-03-04 20:18:58 - services.vmc_cipher_service - ERROR - Erro ao analisar DOGEUSDT com VMC Cipher: Timeframe inválido: 3h
-2025-03-04 20:18:58 - services.crypto_service - ERROR - Erro ao obter dados históricos para DOGEUSDT (12h) - Exceção: ValueError: Timeframe inválido: 12h
-Traceback (most recent call last):
-  File "/Users/alexandresimasmaciel/Documents/Projetos IA/agent-ia-new - cópia/services/crypto_service.py", line 309, in get_historical_data
-    raise ValueError(f"Timeframe inválido: {timeframe}")
-ValueError: Timeframe inválido: 12h
-2025-03-04 20:18:58 - services.vmc_cipher_service - ERROR - Erro ao analisar DOGEUSDT com VMC Cipher: Timeframe inválido: 12h
-=== Bot encerrado em Tue Mar  4 20:24:04 -03 2025 ===
+2025-03-05 19:00:27 - root - ERROR - Sistema de logging inicializado (console: ERROR, arquivo: ERROR)
+2025-03-05 19:00:40 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:00:40 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:00:44 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:00:44 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:00:45 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:00:45 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:00:49 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:00:49 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:02 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:02 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:15 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:15 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:19 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:19 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:20 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:20 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:25 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:25 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:26 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:26 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:32 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:32 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:33 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:33 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:36 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:36 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:42 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:42 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:48 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:48 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:51 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:51 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:53 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:01:53 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:02 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:02 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:06 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:06 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:07 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:07 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:18 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:18 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:22 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:22 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:24 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:24 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:26 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-03-05 19:02:26 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 3584, in get_updates
+    await self._post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 613, in _post
+    return await self._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/ext/_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/_bot.py", line 641, in _do_post
+    return await request.post(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+  File "/Users/alexandresimasmaciel/Library/Python/3.9/lib/python/site-packages/telegram/request/_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running

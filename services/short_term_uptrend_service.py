@@ -2,6 +2,8 @@
 
 from typing import Dict, List, Optional, Any
 import asyncio
+import pandas as pd
+import numpy as np
 from config import DEFAULT_SYMBOLS
 from utils.logger import get_logger, log_exception
 from models.crypto import EMAIndicator, RSIIndicator
@@ -108,8 +110,9 @@ class ShortTermUptrendChecker:
         
         Condições:
         1. Preço acima das EMAs 8 e 14 no timeframe de 4 horas
-        2. EMA 8 acima da EMA 14 no timeframe de 30 minutos
-        3. RSI acima do RSI Based MA no timeframe de 1 hora
+        2. RSI acima do RSI Based MA no timeframe de 4 horas
+        3. RSI acima de 50 pontos no timeframe de 4 horas
+        4. Preço da moeda acima do topo anterior no timeframe de 4 horas
         
         Args:
             symbol: Símbolo da criptomoeda.
@@ -122,34 +125,18 @@ class ShortTermUptrendChecker:
             df_4h = await self.crypto_service.get_historical_data(symbol, "4h")
             
             # Calcula EMAs para 4 horas
-            ema_8_4h = df_4h["close"].ewm(span=8, adjust=False).mean().iloc[-1]
-            ema_14_4h = df_4h["close"].ewm(span=14, adjust=False).mean().iloc[-1]
-            current_price_4h = df_4h["close"].iloc[-1]
+            ema_8_4h = df_4h["close"].ewm(span=8, adjust=False).mean()
+            ema_14_4h = df_4h["close"].ewm(span=14, adjust=False).mean()
+            current_price = df_4h["close"].iloc[-1]
             
             # Verifica condição 1: Preço acima das EMAs 8 e 14 no timeframe de 4 horas
-            condition_1 = current_price_4h > ema_8_4h and current_price_4h > ema_14_4h
+            condition_1 = current_price > ema_8_4h.iloc[-1] and current_price > ema_14_4h.iloc[-1]
             
             if not condition_1:
                 return False
             
-            # Obtém dados para o timeframe de 30 minutos
-            df_30m = await self.crypto_service.get_historical_data(symbol, "30m")
-            
-            # Calcula EMAs para 30 minutos
-            ema_8_30m = df_30m["close"].ewm(span=8, adjust=False).mean().iloc[-1]
-            ema_14_30m = df_30m["close"].ewm(span=14, adjust=False).mean().iloc[-1]
-            
-            # Verifica condição 2: EMA 8 acima da EMA 14 no timeframe de 30 minutos
-            condition_2 = ema_8_30m > ema_14_30m
-            
-            if not condition_2:
-                return False
-            
-            # Obtém dados para o timeframe de 1 hora
-            df_1h = await self.crypto_service.get_historical_data(symbol, "1h")
-            
-            # Calcula RSI para 1 hora
-            delta = df_1h["close"].diff()
+            # Calcula RSI para 4 horas
+            delta = df_4h["close"].diff()
             gain = delta.where(delta > 0, 0)
             loss = -delta.where(delta < 0, 0)
             avg_gain = gain.rolling(window=14).mean()
@@ -160,10 +147,37 @@ class ShortTermUptrendChecker:
             # Calcula RSI Based MA (média móvel do RSI)
             rsi_ma = rsi.rolling(window=9).mean()
             
-            # Verifica condição 3: RSI acima do RSI Based MA no timeframe de 1 hora
-            condition_3 = rsi.iloc[-1] > rsi_ma.iloc[-1]
+            # Verifica condição 2: RSI acima do RSI Based MA no timeframe de 4 horas
+            condition_2 = rsi.iloc[-1] > rsi_ma.iloc[-1]
             
-            return condition_3
+            if not condition_2:
+                return False
+            
+            # Verifica condição 3: RSI acima de 50 pontos no timeframe de 4 horas
+            condition_3 = rsi.iloc[-1] > 50
+            
+            if not condition_3:
+                return False
+            
+            # Verifica condição 4: Preço da moeda acima do topo anterior
+            # Encontra o topo anterior (máximo local nos últimos 20 períodos, excluindo os 3 mais recentes)
+            lookback_period = 20
+            recent_exclude = 3
+            
+            if len(df_4h) < lookback_period + recent_exclude:
+                # Não há dados suficientes para determinar o topo anterior
+                return False
+            
+            # Obtém os preços de fechamento excluindo os períodos mais recentes
+            historical_prices = df_4h["close"].iloc[-(lookback_period+recent_exclude):-recent_exclude]
+            
+            # Encontra o topo anterior (máximo local)
+            previous_high = historical_prices.max()
+            
+            # Verifica se o preço atual está acima do topo anterior
+            condition_4 = current_price > previous_high
+            
+            return condition_4
             
         except Exception as e:
             log_exception(self.logger, e, f"Erro ao verificar condições de tendência de alta para {symbol}")
@@ -182,8 +196,9 @@ class ShortTermUptrendChecker:
         message = "🚀 <b>TENDÊNCIA DE ALTA DE CURTO PRAZO</b> 🚀\n\n"
         message += "Criptomoedas que atendem aos seguintes critérios:\n"
         message += "• Preço acima das EMAs 8 e 14 (4h)\n"
-        message += "• EMA 8 acima da EMA 14 (30m)\n"
-        message += "• RSI acima do RSI Based MA (1h)\n\n"
+        message += "• RSI acima do RSI Based MA (4h)\n"
+        message += "• RSI acima de 50 pontos (4h)\n"
+        message += "• Preço da moeda acima do topo anterior (4h)\n\n"
         
         for coin in uptrend_coins:
             message += f"💰 <b>{coin['symbol']}</b>: {coin['formatted_price']} USDT\n"

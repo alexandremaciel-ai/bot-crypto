@@ -12,8 +12,12 @@ Um bot do Telegram para monitoramento de criptomoedas em tempo real, com anális
   - Detecção de círculos dourados (confirmação de compra)
   - Detecção de círculos vermelhos (oportunidades de venda)
   - Detecção de triângulos roxos (alertas de divergência)
+- **Novo:** Detecção de tendência de baixa de curto prazo
+  - Identifica criptomoedas com RSI abaixo de 45 no timeframe de 4 horas
+  - Verifica VMC Cipher com círculo vermelho no timeframe de 1 hora
 - Interface amigável via Telegram
 - Suporte a múltiplos usuários com controle de acesso
+- **Novo:** Scripts robustos para inicialização e encerramento seguro do bot
 
 ## Requisitos
 
@@ -88,6 +92,10 @@ cp .env.example .env
 
 5. Execute o bot:
 ```bash
+# Método recomendado (usando o script de inicialização segura)
+./start_bot.sh
+
+# Método alternativo (execução direta)
 python main.py
 ```
 
@@ -95,21 +103,24 @@ python main.py
 
 ```
 crypto-agent/
-├── main.py                  # Ponto de entrada da aplicação
-├── config.py                # Configurações e carregamento de variáveis de ambiente
-├── services/                # Serviços modulares
-│   ├── telegram_service.py  # Serviço de integração com o Telegram
-│   ├── crypto_service.py    # Serviço de dados de criptomoedas
-│   ├── analysis_service.py  # Serviço de análise técnica
-│   ├── scheduler_service.py # Serviço de agendamento de tarefas
-│   └── vmc_cipher_service.py # Serviço de análise VMC Cipher Divergency
-├── models/                  # Modelos de dados
-│   ├── crypto.py            # Modelos para dados de criptomoedas
-│   └── user.py              # Modelos para dados de usuários
-└── utils/                   # Utilitários
-    ├── logger.py            # Configuração de logging
-    ├── formatters.py        # Formatadores de mensagens
-    └── validators.py        # Validadores de entrada
+├── main.py                           # Ponto de entrada da aplicação
+├── config.py                         # Configurações e carregamento de variáveis de ambiente
+├── start_bot.sh                      # Script para inicialização segura do bot
+├── stop_bot.sh                       # Script para encerramento seguro do bot
+├── services/                         # Serviços modulares
+│   ├── telegram_service.py           # Serviço de integração com o Telegram
+│   ├── crypto_service.py             # Serviço de dados de criptomoedas
+│   ├── analysis_service.py           # Serviço de análise técnica
+│   ├── scheduler_service.py          # Serviço de agendamento de tarefas
+│   ├── vmc_cipher_service.py         # Serviço de análise VMC Cipher Divergency
+│   └── short_term_downtrend_service.py # Serviço de detecção de tendência de baixa de curto prazo
+├── models/                           # Modelos de dados
+│   ├── crypto.py                     # Modelos para dados de criptomoedas
+│   └── user.py                       # Modelos para dados de usuários
+└── utils/                            # Utilitários
+    ├── logger.py                     # Configuração de logging
+    ├── formatters.py                 # Formatadores de mensagens
+    └── validators.py                 # Validadores de entrada
 ```
 
 ## Uso
@@ -126,6 +137,50 @@ Comandos disponíveis:
 - `/analise <símbolo>` - Exibe análise de preço e variação percentual
 - `/vmc <símbolo> [timeframe]` - Análise usando o indicador VMC Cipher
 
+## Gerenciamento do Bot
+
+### Scripts de Gerenciamento
+
+O projeto agora inclui scripts robustos para gerenciar o ciclo de vida do bot:
+
+#### Inicialização Segura (start_bot.sh)
+
+Este script garante uma inicialização segura do bot:
+- Verifica e encerra qualquer instância do bot em execução
+- Remove arquivos de lock que possam bloquear a inicialização
+- Inicia o bot em segundo plano com redirecionamento de logs
+
+```bash
+./start_bot.sh
+```
+
+#### Encerramento Seguro (stop_bot.sh)
+
+Este script encerra o bot de forma segura:
+- Tenta primeiro um encerramento gracioso (SIGTERM)
+- Se necessário, força o encerramento (SIGKILL)
+- Remove arquivos de lock
+- Registra o encerramento no arquivo de log
+
+```bash
+./stop_bot.sh
+```
+
+## Serviços Agendados
+
+O bot executa os seguintes serviços em intervalos regulares:
+
+- **Verificação de Preços**: A cada 5 minutos
+- **Análise VMC Cipher**: A cada 15 minutos
+- **Verificação de Oportunidades de Compra**: A cada 30 minutos
+- **Verificação de Tendência de Baixa de Curto Prazo**: A cada 12 minutos (novo)
+
+## Configuração de Logging
+
+O sistema de logging foi configurado para registrar apenas erros, tanto no console quanto nos arquivos de log, reduzindo o ruído e facilitando a identificação de problemas.
+
+Os logs são armazenados no diretório `logs/` com o formato `crypto_agent_YYYY-MM-DD.log`.
+
 ## VMC Cipher
 
 O VMC Cipher é um indicador técnico avançado que combina o WaveTrend com o RSI para identificar oportunidades de compra e venda. O bot implementa os seguintes sinais:
@@ -136,6 +191,15 @@ O VMC Cipher é um indicador técnico avançado que combina o WaveTrend com o RS
 - **Triângulo Roxo**: Alerta de divergência. Ocorre quando há uma divergência entre o preço e o WaveTrend.
 
 O bot verifica automaticamente estes sinais em intervalos regulares e notifica os usuários quando encontra oportunidades de trading. Você também pode solicitar uma análise manual usando o comando `/vmc`.
+
+## Detecção de Tendência de Baixa de Curto Prazo
+
+O novo serviço de detecção de tendência de baixa de curto prazo identifica criptomoedas que atendem aos seguintes critérios:
+
+1. RSI abaixo de 45 no timeframe de 4 horas
+2. VMC Cipher com círculo vermelho no timeframe de 1 hora
+
+Este serviço é executado a cada 12 minutos e envia notificações para o chat do Telegram quando encontra criptomoedas que atendem a esses critérios.
 
 ## Solução de Problemas
 
@@ -171,9 +235,16 @@ O TA-Lib pode ser complicado de instalar em alguns sistemas. Aqui estão algumas
 
 Se você continuar tendo problemas com o TA-Lib, pode optar por usar apenas a biblioteca 'ta' que já está incluída nas dependências. Ela oferece funcionalidades similares, embora não tão completas quanto o TA-Lib.
 
-### Erros comuns de execução
+O bot está configurado para usar a biblioteca 'ta' como alternativa quando o TA-Lib não está disponível.
 
-- **Erro "non-default argument follows default argument"**: Este erro ocorre quando há um problema na definição de classes com dataclass. Certifique-se de que todos os argumentos sem valor padrão estejam antes dos argumentos com valor padrão. Se você encontrar este erro, verifique as classes em `models/crypto.py`.
+### Problemas com o Arquivo de Lock
+
+Se você encontrar mensagens de erro indicando que "Outra instância do Crypto Agent já está em execução", mas tem certeza de que não há outra instância em execução, use o script `start_bot.sh` que foi projetado para lidar com essa situação automaticamente.
+
+Alternativamente, você pode remover manualmente o arquivo de lock:
+```bash
+rm crypto_agent.lock
+```
 
 ## Licença
 
